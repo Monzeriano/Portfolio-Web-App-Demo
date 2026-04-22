@@ -74,7 +74,7 @@ nav.navbar {
   z-index: 9999;
   transition:  0.2s ease-in-out;
 }
-nav.navbar.scrolled {
+nav.navbar {
   padding: 0px 0;
   background-color: #171717;
 }
@@ -225,6 +225,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .banner h1 {
+    color: #ffffff;
   font-size: 56px;
   font-weight: 700;
   letter-spacing: 0.8px;
