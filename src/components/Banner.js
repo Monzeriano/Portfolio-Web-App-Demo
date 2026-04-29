@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import headerImg from "../assets/img/header-img.png";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
+import MyCV from '../assets/img/CV.pdf'
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -11,6 +12,16 @@ export const Banner = () => {
   const [index, setIndex] = useState(1);
   const toRotate = [ "NetEng", "SecOps", "DevOps" ];
   const period = 500;
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = MyCV;
+    link.download = 'My_CV.pdf'
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -52,7 +63,7 @@ export const Banner = () => {
           <Col xs={12} md={6} xl={7}>
             <h1>{`I'm Omar,`} <span className="txt-rotate" dataPeriod="2000" data-rotate='[ "NetEng", "SecOps", "DevOps" ]'><span className="wrap">{text}</span></span></h1>
             <p>Highly motivated Network Engineer with a strong foundation in designing, implementing, and troubleshooting complex network infrastructures. Certified in CCNA and AWS Certified Cloud Practitioner, with a passion for automating routine tasks using Python and building secure enterprise networks. Dedicated to creating reliable, high-performance connectivity solutions, specializing in Cisco environments, SD-WAN, and cloud hybrid setups.</p>
-            <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={30} /></button>
+            <button onClick={handleDownload}>Download CV <ArrowRightCircle size={30} /></button>
           </Col>
           <Col xs={12} md={6} xl={5}>
             <img src={headerImg} alt="Header Img"/>
